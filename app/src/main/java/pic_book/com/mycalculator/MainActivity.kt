@@ -12,14 +12,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
     lateinit var tilInput1: TextInputLayout
-    lateinit var etInput1: EditText
+    lateinit var etInput1: TextInputEditText
     lateinit var tilInput2: TextInputLayout
-    lateinit var etInput2: EditText
-    lateinit var tvView: TextView
+    lateinit var etInput2: TextInputEditText
+    lateinit var tvOutput: TextView
     lateinit var btnAdd: Button
     lateinit var btnSubtract: Button
     lateinit var btnModulus: Button
@@ -34,16 +35,11 @@ class MainActivity : AppCompatActivity() {
         tilInput2 = findViewById(R.id.tilInput2)
         etInput2 = findViewById(R.id.etInput2)
 
-        tvView = findViewById(R.id.tvView)
+        tvOutput = findViewById(R.id.tvOutput)
 
         btnAdd = findViewById(R.id.btnAdd)
-        btnDivision= findViewById(R.id.btnDivision)
-        btnModulus = findViewById(R.id.btnModulus)
-        btnSubtract = findViewById(R.id.btnSubtract)
-
-
         btnAdd.setOnClickListener {
-            tvView.text = ""
+            tvOutput.text = ""
             val num1 = etInput1.text.toString()
             val num2 = etInput2.text.toString()
             if (num1.isBlank()) {
@@ -57,12 +53,12 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
 
             }
-            add(12.0556,7.0)
+            add(num1.toDouble(),num2.toDouble())
 
         }
-
+        btnSubtract = findViewById(R.id.btnSubtract)
         btnSubtract.setOnClickListener {
-            tvView.text = ""
+            tvOutput.text = ""
             val num1 = etInput1.text.toString()
             val num2 = etInput2.text.toString()
             if (num1.isBlank()) {
@@ -75,11 +71,12 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
 
             }
-            subtract(12.0,6.0)
+            subtract(num1.toDouble(),num2.toDouble())
 
         }
+        btnModulus = findViewById(R.id.btnModulus)
         btnModulus.setOnClickListener {
-            tvView.text = ""
+            tvOutput.text = ""
             val num1 = etInput1.text.toString()
             val num2 = etInput2.text.toString()
             if (num1.isBlank()) {
@@ -92,11 +89,12 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
 
             }
-            modulus(12.0,5.0)
+            modulus(num1.toDouble(),num2.toDouble())
 
         }
+        btnDivision= findViewById(R.id.btnDivision)
         btnDivision.setOnClickListener {
-            tvView.text = ""
+            tvOutput.text = ""
             val num1 = etInput1.text.toString()
             val num2 = etInput2.text.toString()
             if (num1.isBlank()) {
@@ -110,27 +108,27 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
 
             }
-            division(30.0,5.0)
+            division(num1.toDouble(), num2.toDouble())
         }
     }
 
         fun add(num1: Double, num2: Double) {
             val total = num1 + num2
-            tvView.text = total.toString()
+            tvOutput.text = total.toString()
 
         }
         fun subtract(num1: Double, num2: Double) {
             var diff = num1 + num2
-            tvView.text = diff.toString()
+            tvOutput.text = diff.toString()
         }
 
         fun modulus(num1: Double, num2: Double) {
             var mod = num1 % num2
-            tvView.text = mod.toString()
+            tvOutput.text = mod.toString()
         }
         fun division(num1: Double, num2: Double) {
             var div = num1 / num2
-            tvView.text = div.toString()
+            tvOutput.text = div.toString()
 
         }
 }

@@ -4,4 +4,6 @@
     <string name="btnAdd">+</string>
     <string name="btnSubtract">-</string>
     <string name="btnDivision">/</string>
+<!--    <string name="enter_a_number">Enter a number</string>-->
+    <string name="enter_a_number">Enter a number</string>
 </resources>
