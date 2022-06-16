@@ -37,52 +37,100 @@ class MainActivity : AppCompatActivity() {
         tvView = findViewById(R.id.tvView)
 
         btnAdd = findViewById(R.id.btnAdd)
-        btnAdd.setOnClickListener {
-        add(12.6,10.3)
-        }
-        btnSubtract = findViewById(R.id.btnSubtract)
-        btnSubtract.setOnClickListener {
-         subtract(30.9,12.0)
-        }
-        btnDivision = findViewById(R.id.btnDivision)
-        btnDivision.setOnClickListener {
-         division(20.0,4.0)
-        }
-
+        btnDivision= findViewById(R.id.btnDivision)
         btnModulus = findViewById(R.id.btnModulus)
+        btnSubtract = findViewById(R.id.btnSubtract)
+
+
+        btnAdd.setOnClickListener {
+            tvView.text = ""
+            val num1 = etInput1.text.toString()
+            val num2 = etInput2.text.toString()
+            if (num1.isBlank()) {
+                tilInput1.setError("number is required")
+                return@setOnClickListener
+
+            }
+
+            if (num2.isBlank()) {
+                tilInput2.setError("number is required")
+                return@setOnClickListener
+
+            }
+            add(12.0556,7.0)
+
+        }
+
+        btnSubtract.setOnClickListener {
+            tvView.text = ""
+            val num1 = etInput1.text.toString()
+            val num2 = etInput2.text.toString()
+            if (num1.isBlank()) {
+                tilInput1.setError("number is required")
+                return@setOnClickListener
+
+            }
+            if (num2.isBlank()) {
+                tilInput2.setError("number is required")
+                return@setOnClickListener
+
+            }
+            subtract(12.0,6.0)
+
+        }
         btnModulus.setOnClickListener {
-          modulus(10.5,2.0)
+            tvView.text = ""
+            val num1 = etInput1.text.toString()
+            val num2 = etInput2.text.toString()
+            if (num1.isBlank()) {
+                tilInput1.setError("number is required")
+                return@setOnClickListener
+
+            }
+            if (num2.isBlank()) {
+                tilInput2.setError("number is required")
+                return@setOnClickListener
+
+            }
+            modulus(12.0,5.0)
+
+        }
+        btnDivision.setOnClickListener {
+            tvView.text = ""
+            val num1 = etInput1.text.toString()
+            val num2 = etInput2.text.toString()
+            if (num1.isBlank()) {
+                tilInput1.setError("number is required")
+                return@setOnClickListener
+
+            }
+
+            if (num2.isBlank()) {
+                tilInput2.setError("number is required")
+                return@setOnClickListener
+
+            }
+            division(30.0,5.0)
         }
     }
-    fun add(num1:Double,num2: Double){
-       var sum = num1 + num2
-        tvView.text = sum.toString()
-    }
-    fun subtract(num1:Double,num2:Double){
-        var diff = num1 + num2
-        tvView.text = diff.toString()
-    }
-    fun modulus(num1:Double,num2:Double){
-        var mod = num1 % num2
-        tvView.text = mod.toString()
-    }
-    fun division(num1:Double,num2:Double){
-        var div = num1 / num2
-        tvView.text = div.toString()
-    }
 
-    }
+        fun add(num1: Double, num2: Double) {
+            val total = num1 + num2
+            tvView.text = total.toString()
 
+        }
+        fun subtract(num1: Double, num2: Double) {
+            var diff = num1 + num2
+            tvView.text = diff.toString()
+        }
 
+        fun modulus(num1: Double, num2: Double) {
+            var mod = num1 % num2
+            tvView.text = mod.toString()
+        }
+        fun division(num1: Double, num2: Double) {
+            var div = num1 / num2
+            tvView.text = div.toString()
 
-//btnMultiply.setOnClickListener {
-//            var num1=etNumber.text.toString().toDouble()
-//            var num2=etSecond.text.toString().toDouble()
-//            multiply(num1,num2)
-//        }
-//btnSubstract.setOnClickListener {
-////            var num1=etNumber.text.toString().toDouble()
-//            var num2=etSecond.text.toString().toDouble()
-//            subtract(num1,num2)
-//        }
-//
+        }
+}

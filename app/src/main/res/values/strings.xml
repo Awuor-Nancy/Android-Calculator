@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Calculator</string>
+    <string name="btnMod">%</string>
+    <string name="btnAdd">+</string>
+    <string name="btnSubtract">-</string>
+    <string name="btnDivision">/</string>
 </resources>
